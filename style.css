@@ -340,9 +340,6 @@ footer {
         display: flex; /* Show the menu */
     }
 
-   
-}
-
     #ThirtySeventySection { 
         flex-direction: column;
     }
@@ -369,4 +366,8 @@ footer {
         margin: 20px 0; /* Space between stacked cards */
     }
 
+
+   
 }
+
+   
