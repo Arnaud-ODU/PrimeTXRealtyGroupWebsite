@@ -116,7 +116,7 @@ footer {
 }
 
 #ThirtySeventySection {
-    max-width: 1300px;
+    max-width: 1450px;
     margin: 0 auto; /* This centers your page */
     display: flex;
     justify-content: space-between;
@@ -215,41 +215,97 @@ footer {
 }
 
 #AboutMeSection {
-    max-width: 1000px;
-    margin: 0 auto; /* This centers your page */
+    margin: 0 auto; /* Centers the container horizontally */
     display: flex;
-    justify-content: space-between;
-    background-image: url('Homepage Images/Salon.jpg');
-    background-size: cover; /* Ensures the image covers the entire element */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
+    justify-content: center; /* Center the child elements within */
+    align-items: center; /* Align the items vertically */
+    flex-direction: column; /* Stack elements vertically (optional, if needed) */
+    background-color: #333; /* Optional dark background color */
+    padding: 20px; /* Optional padding */
 }
 
 .AboutMeBox {
-    max-width: 1000px;
-    background-color: rgba(255, 255, 255, 0.75); /* White with 50% transparency */
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between; /* Space between cards on larger screens */
+    align-items: center; /* Align items vertically */
+    justify-content: space-between; /* Evenly space the cards */
+    flex-wrap: nowrap; /* Prevent wrapping by default */
     padding: 20px;
     text-align: center;
+    overflow-x: auto; /* Allow horizontal scrolling if cards overflow */
 }
 
-.AboutMetitle-area {
-    padding: 20px;
-    font-family: 'Helvetica Neue', Helvetica, sans-serif;
-    font-size:xx-large;
-    text-align: left;
-    font-weight: 200;
-    color: #dc4788;
-
-    /* Add additional styling for text areas here */
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 10px; /* Adds space between the cards */
+    width: 30%; /* Fixed width for each card */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    min-width: 300px; /* Prevents cards from shrinking too much */
 }
 
-.AboutMequote-area {
-    padding: 20px;
-    font-family: 'Poppins', sans-serif;
-    font-size:medium;
-    text-align: left;
-    line-height: 1.5em;
-    color: rgb(0, 0, 0);
-    /* Add additional styling for text areas here */
+.card .status {
+    background-color: #c62828; /* Red background */
+    color: #fff; /* White text */
+    font-weight: bold;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.card .description {
+    font-size: 14px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.card .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.card .details {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.card .info {
+    font-size: 12px;
+    color: #999;
+}
+
+.newsCard {
+    background-color: #333;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 10px; /* Adds space between the cards */
+    width: 30%; /* Fixed width for each card */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    min-width: 300px; /* Prevents cards from shrinking too much */
+
 }
 
 /* Responsive Design */
@@ -260,17 +316,32 @@ footer {
 
     .menu-btn {
         display: block;
+        z-index: 1001; /* Ensure it stays above the blurred background */
     }
 
     nav ul {
         flex-direction: column;
         align-items: flex-start;
         display: none;
+        position: fixed; /* Make the menu overlay the screen */
+        top: 120px; /* Adjust for header/menu-btn placement */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(255, 254, 254, 0.8); /* Semi-transparent white */
+        width: 30%; /* Take up most of the screen width */
+        max-width: 400px; /* Limit width for better readability */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        z-index: 1002; /* Above blurred background */
     }
 
     nav ul.active {
-        display: block;
+        display: flex; /* Show the menu */
     }
+
+   
+}
 
     #ThirtySeventySection { 
         flex-direction: column;
@@ -284,4 +355,18 @@ footer {
         height: 452px; /* Set the height of the thumbnail */
         object-fit: cover; /* This will ensure the images cover the area without stretching */
     }
+
+    .AboutMeBox {
+        flex-wrap: wrap; /* Allows wrapping on smaller screens */
+        justify-content: center; /* Center cards horizontally */
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center; /* Center the cards */
+    }
+
+    .card {
+        width: 100%; /* Make each card take full width on mobile */
+        max-width: 400px; /* Add a max-width for better readability */
+        margin: 20px 0; /* Space between stacked cards */
+    }
+
 }
